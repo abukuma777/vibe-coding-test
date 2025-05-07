@@ -1,0 +1,15 @@
+mode: auto
+silent: false
+branchName: 'issue/${issue.number}-${issue.title}'
+gitSafeReplacementChar: '-'
+autoCloseIssue: false
+openDraftPR: false
+copyIssueDescriptionToPR: true
+copyIssueLabelsToPR: true
+copyIssueAssigneeToPR: true
+copyIssueProjectsToPR: true
+copyIssueMilestoneToPR: true
+conventional:
+  prefixes:
+    - fix
+    - feat

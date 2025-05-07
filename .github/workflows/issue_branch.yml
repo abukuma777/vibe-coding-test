@@ -14,8 +14,3 @@ jobs:
         uses: robvanderleek/create-issue-branch@main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          branch_name: 'issue/${issue.number}-${issue.title}'
-          mode: replace
-          replacementPattern: '[^a-zA-Z0-9_-]'
-          replacement: '-'
