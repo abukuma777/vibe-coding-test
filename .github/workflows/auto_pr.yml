@@ -12,6 +12,7 @@ jobs:
       pull-requests: write
     steps:
       - uses: actions/checkout@v4
+<<<<<<< HEAD
         with:
           fetch-depth: 0
       
@@ -34,3 +35,13 @@ jobs:
           draft: true
           branch: ${{ github.ref_name }}
           base: main
+=======
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          commit-message: "chore: auto PR from ${GITHUB_REF_NAME}"
+          title: "Auto PR from ${GITHUB_REF_NAME}"
+          body: "This pull request was automatically generated."
+          draft: true
+>>>>>>> 71d6162cc6dd729ffe2e29683176600597ce7151

@@ -10,6 +10,12 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v4
-      - uses: tibdex/create-issue-branch@v5
+      - name: Create Issue Branch
+        uses: robvanderleek/create-issue-branch@main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          branch_suffix: ""
+          branch_name: 'issue/${issue.number}-${issue.title}'
+          mode: replace
+          replacementPattern: '[^a-zA-Z0-9_-]'
+          replacement: '-'
