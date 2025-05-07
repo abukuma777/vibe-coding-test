@@ -1,0 +1,10 @@
+name: Branch → Draft PR
+on:
+  push:
+    branches: ["issue/**"]
+jobs:
+  pr:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: gh pr create --fill --head ${{ github.ref_name }}
