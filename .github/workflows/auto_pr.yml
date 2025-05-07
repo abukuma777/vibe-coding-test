@@ -1,10 +1,19 @@
-name: Branch → Draft PR
+name: Auto PR on Push
 on:
   push:
-    branches: ["issue/**"]
+    branches:
+      - "issue/**"
+
 jobs:
-  pr:
+  create_pr:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: gh pr create --fill --head ${{ github.ref_name }}
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          commit-message: "chore: auto PR from ${GITHUB_REF_NAME}"
+          title: "Auto PR from ${GITHUB_REF_NAME}"
+          body: "This pull request was automatically generated."
+          draft: true
